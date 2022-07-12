@@ -8,7 +8,7 @@ import {
 import CardDetails from "commons/CardDetails";
 import React from "react";
 import { Movie } from "types/movieInterface";
-const baseUrl = "https://image.tmdb.org/t/p";
+import { baseUrl } from "services/utils";
 
 const MovieCard = (props: Movie) => {
   const { title, poster_path, poster_size } = props;
