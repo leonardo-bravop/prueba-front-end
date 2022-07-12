@@ -48,8 +48,8 @@ const CardDetails = ({
           <Typography ml={1}>{`(${release_date.substring(0, 4)})`}</Typography>
         </Box>
         <Typography sx={{ p: 1 }} paragraph variant="body2">
-          {overview.length > 250
-            ? overview.substring(0, 250).trim() + "[...]"
+          {overview.length > 415
+            ? overview.substring(0, 415).trim() + "[...]"
             : overview}
         </Typography>
       </Box>
