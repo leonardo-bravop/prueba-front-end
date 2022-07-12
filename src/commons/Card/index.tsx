@@ -4,23 +4,15 @@ import {
   CardContent,
   CardMedia,
   Typography,
-  Popover,
-  Box,
-  Divider,
 } from "@mui/material";
+import CardDetails from "commons/CardDetails";
 import React from "react";
 import { Movie } from "types/movieInterface";
 const baseUrl = "https://image.tmdb.org/t/p";
 
-const MovieCard = ({
-  title,
-  poster_path,
-  poster_size,
-  vote_average,
-  vote_count,
-  release_date,
-  overview,
-}: Movie) => {
+const MovieCard = (props: Movie) => {
+  const { title, poster_path, poster_size } = props;
+
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
   const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -64,44 +56,12 @@ const MovieCard = ({
             {title}
           </Typography>
 
-          <Popover
-            id="mouse-over-popover"
-            sx={{
-              pointerEvents: "none",
-            }}
+          <CardDetails
+            {...props}
             open={open}
             anchorEl={anchorEl}
-            anchorOrigin={{
-              vertical: "center",
-              horizontal: "right",
-            }}
-            transformOrigin={{
-              vertical: "center",
-              horizontal: "left",
-            }}
-            onClose={handlePopoverClose}
-            disableRestoreFocus
-          >
-            <Box sx={{ width: "300px" }}>
-              <Typography sx={{ p: 1 }} variant="subtitle1">
-                {title}
-              </Typography>
-              <Divider />
-              <Box sx={{ p: 1, display: "flex" }}>
-                <Typography fontWeight={"bold"}>
-                  {vote_count ? vote_average : "NA"}/10
-                </Typography>
-                <Typography ml={1}>
-                  {`(${release_date.substring(0, 4)})`}
-                </Typography>
-              </Box>
-              <Typography sx={{ p: 1 }} paragraph variant="body2">
-                {overview.length > 250
-                  ? overview.substring(0, 250).trim() + "[...]"
-                  : overview}
-              </Typography>
-            </Box>
-          </Popover>
+            handlePopoverClose={handlePopoverClose}
+          />
         </CardContent>
       </CardActionArea>
     </Card>
