@@ -1,6 +1,6 @@
 
 import { MoviesDispatchTypes, MOVIES_FAIL, MOVIES_LOADING, MOVIES_SUCCESS } from "state/actions/actionTypes";
-import { Movie } from "types";
+import { Movie } from "types/movieInterface";
 
 export interface DefaultMoviesState {
     loading: boolean,

@@ -9,7 +9,7 @@ import {
   Divider,
 } from "@mui/material";
 import React from "react";
-import { Movie } from "types";
+import { Movie } from "types/movieInterface";
 const baseUrl = "https://image.tmdb.org/t/p";
 
 const MovieCard = ({

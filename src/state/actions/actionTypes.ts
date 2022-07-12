@@ -1,4 +1,4 @@
-import { Movie } from "types";
+import { Movie } from "types/movieInterface";
 
 export const MOVIES_LOADING = "MOVIES_LOADING";
 export const MOVIES_FAIL = "MOVIES_FAIL";
